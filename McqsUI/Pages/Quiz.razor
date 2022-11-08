@@ -1,0 +1,67 @@
+﻿@page "/quiz"
+@inject QuizServiceStub Http
+@inject NavigationManager NavigationManager
+@inject QuizStateContainer StateContainer
+@inject IJSRuntime JsRuntime
+
+<h1>@quizDTO.Name</h1>
+<p>
+    @quizDTO.Description, total questioins in the quiz are <strong>@quizDTO.Questions.Count</strong> and
+    total time is <strong>@quizDTO.Duration.TotalMinutes Minutes</strong>
+</p>
+<button class="btn btn-primary" @onclick="StartQuiz"> @(started?"Stop":"Start") </button> &nbsp;
+
+<BackTimer @ref="myTimer" duration="quizDTO.Duration"></BackTimer>
+
+@if (started)
+{
+    <div class="mt-3 col-12">
+        @for (int j = 0; j < quizDTO.Questions.Count; j++)
+        {
+            var question = quizDTO.Questions[j];
+
+            <div class="@(j!=index? "d-none":"animate-right")">
+                <h2>@question.Name</h2>
+                <p>@question.Description</p>
+                <p>
+                    <label>
+                        <strong>A:</strong>
+                        <input class="ml-2" type="radio" name="@question.Id" value="A" @onchange="SelectAnswer" /> @question.OptionA
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        <strong>B:</strong>
+                        <input class="ml-2" type="radio" name="@question.Id" value="B" @onchange="SelectAnswer" /> @question.OptionB
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        <strong>C:</strong>
+                        <input class="ml-2" type="radio" name="@question.Id" value="C" @onchange="SelectAnswer" /> @question.OptionC
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        <strong>D:</strong>
+                        <input class="ml-2" type="radio" name="@question.Id" value="D" @onchange="SelectAnswer" /> @question.OptionD
+                    </label>
+                </p>
+            </div>
+        }
+
+        <div class="col-6">
+            @if (index == quizDTO.Questions.Count - 1)
+            {
+                <div class="col-3 float-end"> <button class="btn btn-primary" disabled="@(questionDTO.Answer==null)" @onclick="Finish">Finish </button> </div>
+            }
+            else
+            {
+                <div class="col-3 float-end"> <button class="btn btn-primary" disabled="@(questionDTO.Answer==null || index==quizDTO.Questions.Count-1)" @onclick="Next">Next </button> </div>
+            }
+            <div class="col-3 float-start"> <button class="btn btn-primary" disabled="@(index==0)" @onclick="Previous">  Previous </button> </div>
+            <div></div>
+        </div>
+    </div>
+}
+

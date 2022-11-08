@@ -1,0 +1,20 @@
+﻿@page "/quiz-result"
+@inject QuizServiceStub Http
+@inject IJSRuntime JsRuntime
+@inject QuizStateContainer StateContainer
+
+<h2>Welcome to Results</h2>
+@if (ResultDTO == null)
+{
+    <div>
+        <h3> Sorry Could not find your Answers, please contact Admin office immediately. </h3>
+    </div>
+}
+
+@if (ResultDTO != null)
+{
+    <div class="@(ResultDTO != null ? "" : "d-none")">
+        <p>Your Total Score is: <strong> @ResultDTO.Answers.Sum(s => s.Marks) </strong>  </p>
+        <p> Total Wrong Answers are: <strong> @ResultDTO.Answers.Where(c => c.Marks <= 0).Count() </strong> </p>
+    </div>
+}

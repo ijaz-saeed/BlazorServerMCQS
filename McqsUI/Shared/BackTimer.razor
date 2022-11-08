@@ -1,0 +1,63 @@
+﻿@implements IDisposable
+
+@if (started)
+{
+    <div class="mt-3">
+        <h3>Time left ...  @tspan.Hours:@tspan.Minutes:@tspan.Seconds </h3>
+    </div>
+}
+
+@code {
+        bool started = false;
+    private System.Timers.Timer aTimer;
+    private double counter = 60;
+    TimeSpan tspan = new TimeSpan(0, 30, 0);
+
+    [Parameter]
+    public TimeSpan duration { get; set; }
+
+
+    public void StartTimer()
+    {
+        started = !started;
+        tspan = duration;
+        InvokeAsync(StateHasChanged);
+        if (started)
+        {
+            counter = duration.TotalMinutes * 60;
+            aTimer = new System.Timers.Timer(1000);
+            aTimer.Elapsed += CountDownTimer;
+            aTimer.Enabled = true;
+        }
+        else
+        {
+            aTimer.Elapsed -= CountDownTimer;
+            aTimer.Enabled = false;
+        }
+
+    }
+
+    public void CountDownTimer(Object source, System.Timers.ElapsedEventArgs e)
+    {
+        if (counter > 0)
+        {
+            counter -= 1;
+            tspan -= new TimeSpan(0, 0, 1);
+        }
+        else
+        {
+            aTimer.Elapsed -= CountDownTimer;
+            aTimer.Enabled = false;
+        }
+        InvokeAsync(StateHasChanged);
+    }
+
+    public void Dispose()
+    {
+        if (aTimer != null)
+        {
+            aTimer.Elapsed -= CountDownTimer;
+            aTimer.Enabled = false;
+        }
+    }
+}

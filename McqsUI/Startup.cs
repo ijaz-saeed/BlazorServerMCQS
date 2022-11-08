@@ -1,16 +1,12 @@
-using McqsUI.Data;
 using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using McqsUI.ApiClients;
+using McqsUI.States;
+using McqsUI.Services;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http;
-using System.Threading.Tasks;
 
 namespace McqsUI
 {
@@ -29,11 +25,12 @@ namespace McqsUI
         {
             services.AddRazorPages();
             services.AddServerSideBlazor();
+            services.AddSingleton<QuizStateContainer>();
+            services.AddSingleton<QuizServiceStub>();
             //services.AddSingleton<WeatherForecastService>();
 
             services.AddHttpClient();
             services.AddScoped<WeatherForecastAPI>();
-
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
