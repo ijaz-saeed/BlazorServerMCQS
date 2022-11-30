@@ -1,0 +1,32 @@
+﻿@page "/sysinfo"
+
+<h1>System Info</h1>
+
+<div class="container">
+    <div class="row mb-1 align-items-center">
+        <label Class="col-sm-3" for="clrversion" >CLR Version: </label>
+        <div class="col-sm-9">
+            <input id="clrversion" class="form-control" @bind="@_clrversion" readonly />
+        </div>
+    </div>
+    <div class="row mb-1 align-items-center">
+        <label Class="col-sm-3" for="osversion" >OS Version: </label>
+        <div class="col-sm-9">
+            <input id="osversion" class="form-control" @bind="@_osversion" readonly />
+        </div>
+    </div>
+</div>
+
+@code {
+    private string _clrversion = string.Empty;
+    private string _osversion = string.Empty;
+
+    protected override void OnInitialized()
+    {
+        // base.OnInitialized();
+
+        _clrversion = Environment.Version.ToString();
+        _osversion = Environment.OSVersion.ToString();
+    }
+
+}

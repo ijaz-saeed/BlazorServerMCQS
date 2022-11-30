@@ -5,13 +5,20 @@
 @inject IJSRuntime JsRuntime
 
 <h1>@quizDTO.Name</h1>
+<PageTitle>Quiz</PageTitle>
 <p>
     @quizDTO.Description, total questioins in the quiz are <strong>@quizDTO.Questions.Count</strong> and
     total time is <strong>@quizDTO.Duration.TotalMinutes Minutes</strong>
 </p>
-<button class="btn btn-primary" @onclick="StartQuiz"> @(started?"Stop":"Start") </button> &nbsp;
 
-<BackTimer @ref="myTimer" duration="quizDTO.Duration"></BackTimer>
+<div class="mt-3 row">
+    <div class="col-6">
+        <button class="btn btn-primary " @onclick="StartQuiz"> @(started ? "Stop" : "Start") </button>
+    </div>
+    <dvi class="col-6 float-end">
+        <BackTimer @ref="myTimer" duration="quizDTO.Duration"></BackTimer>
+    </dvi>
+</div>
 
 @if (started)
 {
