@@ -1,0 +1,18 @@
+﻿@page "/mychart"
+@inject IJSRuntime JSRuntime
+
+<h2>My Chart</h2>
+<PageTitle>My Chart</PageTitle>
+
+<div>
+    <canvas id="myChart"></canvas>
+</div>
+
+@code {
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+
+        await JSRuntime.InvokeVoidAsync("drawChart", "Hello world");
+
+    }
+}

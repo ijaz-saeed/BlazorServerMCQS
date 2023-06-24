@@ -1,5 +1,6 @@
 ﻿using McqsUI.Models;
 using Microsoft.AspNetCore.Components;
+using Microsoft.JSInterop;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,6 +28,12 @@ namespace McqsUI.Pages
                 return;
             }
             ResultDTO = await Http.AnalyzeQuizAsync(SolvedQuiz == null ? StateContainer.quizDTO : SolvedQuiz);
+        }
+
+        protected override async Task OnAfterRenderAsync(bool firstRender)
+        {
+            var dataPoints = new List<int> { 5, 5 };
+            await JSRuntime.InvokeVoidAsync("drawChart", dataPoints.ToArray());
         }
     }
 }

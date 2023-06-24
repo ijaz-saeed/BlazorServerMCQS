@@ -2,6 +2,7 @@
 @inject QuizServiceStub Http
 @inject IJSRuntime JsRuntime
 @inject QuizStateContainer StateContainer
+@inject IJSRuntime JSRuntime
 
 <h2>Welcome to Results</h2>
 <PageTitle>Quiz Result</PageTitle>
@@ -18,5 +19,8 @@
     <div class="@(ResultDTO != null ? "" : "d-none")">
         <p>Your Total Score is: <strong> @ResultDTO.Answers.Sum(s => s.Marks) </strong>  </p>
         <p> Total Wrong Answers are: <strong> @ResultDTO.Answers.Where(c => c.Marks <= 0).Count() </strong> </p>
+    </div>
+    <div>
+        <canvas id="myChart"></canvas>
     </div>
 }
