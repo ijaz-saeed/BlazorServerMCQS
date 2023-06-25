@@ -11,9 +11,9 @@ namespace McqsUI.Pages
     public partial class QuizResult : ComponentBase
     {
         [Parameter]
-        public QuizDTO SolvedQuiz { get; set; }
+        public QuizDTO? SolvedQuiz { get; set; }
 
-        public QuizResultDTO ResultDTO { get; set; }
+        public QuizResultDTO? ResultDTO { get; set; }
 
         protected override async Task OnInitializedAsync()
         {
@@ -33,7 +33,10 @@ namespace McqsUI.Pages
         protected override async Task OnAfterRenderAsync(bool firstRender)
         {
             var dataPoints = new List<int> { 5, 5 };
-            await JSRuntime.InvokeVoidAsync("drawChart", dataPoints.ToArray());
+            if (firstRender)
+            {
+                await JSRuntime.InvokeVoidAsync("drawChart", dataPoints.ToArray());
+            }
         }
     }
 }

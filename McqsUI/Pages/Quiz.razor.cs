@@ -9,7 +9,7 @@ namespace McqsUI.Pages
 {
     public partial class Quiz : ComponentBase
     {
-        private BackTimer myTimer;
+        private BackTimer? myTimer;
         private bool started;
         private int index;
         private QuizDTO quizDTO = new();
@@ -38,7 +38,7 @@ namespace McqsUI.Pages
             {
                 started = false;
             }
-            myTimer.StartTimer();
+            myTimer?.StartTimer();
         }
 
         protected void SelectAnswer(ChangeEventArgs args)

@@ -15,7 +15,7 @@ namespace McqsUI.Models
         public SolvedQuestionDTO(QuestionDTO question)
         {
             Id = question.Id;
-            Name = question.Answer;
+            Name = question.Name;
             Description = question.Description;
 
             Answer = question.Answer;

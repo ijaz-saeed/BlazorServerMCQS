@@ -8,8 +8,8 @@
 }
 
 @code {
-        bool started = false;
-    private System.Timers.Timer aTimer;
+    bool started = false;
+    private System.Timers.Timer? aTimer;
     private double counter = 60;
     TimeSpan tspan = new TimeSpan(0, 30, 0);
 
@@ -31,13 +31,16 @@
         }
         else
         {
-            aTimer.Elapsed -= CountDownTimer;
-            aTimer.Enabled = false;
+            if (aTimer != null)
+            {
+                aTimer.Elapsed -= CountDownTimer;
+                aTimer.Enabled = false;
+            }
         }
 
     }
 
-    public void CountDownTimer(Object source, System.Timers.ElapsedEventArgs e)
+    public void CountDownTimer(Object? source, System.Timers.ElapsedEventArgs e)
     {
         if (counter > 0)
         {
@@ -46,8 +49,11 @@
         }
         else
         {
-            aTimer.Elapsed -= CountDownTimer;
-            aTimer.Enabled = false;
+            if (aTimer != null)
+            {
+                aTimer.Elapsed -= CountDownTimer;
+                aTimer.Enabled = false;
+            }
         }
         InvokeAsync(StateHasChanged);
     }

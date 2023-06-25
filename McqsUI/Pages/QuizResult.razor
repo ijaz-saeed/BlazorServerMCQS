@@ -17,8 +17,8 @@
 @if (ResultDTO != null)
 {
     <div class="@(ResultDTO != null ? "" : "d-none")">
-        <p>Your Total Score is: <strong> @ResultDTO.Answers.Sum(s => s.Marks) </strong>  </p>
-        <p> Total Wrong Answers are: <strong> @ResultDTO.Answers.Where(c => c.Marks <= 0).Count() </strong> </p>
+        <p>Your Total Score is: <strong> @ResultDTO?.Answers?.Sum(s => s.Marks) </strong>  </p>
+        <p> Total Wrong Answers are: <strong> @ResultDTO?.Answers?.Where(c => c.Marks <= 0).Count() </strong> </p>
     </div>
     <div>
         <canvas id="myChart"></canvas>

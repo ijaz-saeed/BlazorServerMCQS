@@ -8,9 +8,9 @@ namespace McqsUI.States
 {
     public class QuizStateContainer
     {
-        private QuizDTO _quiz;
+        private QuizDTO? _quiz;        
 
-        public QuizDTO quizDTO
+        public QuizDTO? quizDTO
         {
             get => _quiz;
             set
@@ -20,7 +20,7 @@ namespace McqsUI.States
             }
         }
 
-        public event Action OnChange;
+        public event Action? OnChange;
 
         private void NotifyStateChanged() => OnChange?.Invoke();
     }

@@ -22,6 +22,7 @@ namespace McqsUI.Pages
         public ErrorModel(ILogger<ErrorModel> logger)
         {
             _logger = logger;
+            RequestId = string.Empty;
         }
 
         public void OnGet()

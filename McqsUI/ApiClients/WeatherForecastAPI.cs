@@ -50,7 +50,7 @@ namespace McqsUI.ApiClients
                 list = await response.Content.ReadFromJsonAsync<List<WeatherForecast>>();
             }
 
-            return list;
+            return list == null ? new List<WeatherForecast>() : list;
         }
     }
 

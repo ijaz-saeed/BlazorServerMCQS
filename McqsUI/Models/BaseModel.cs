@@ -6,5 +6,11 @@
         public string Name { get; set; }
 
         public string Description { get; set; }
+
+        public BaseModel()
+        {
+            Name = string.Empty;
+            Description = string.Empty;
+        }
     }
 }
