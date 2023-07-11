@@ -16,7 +16,7 @@
         <button class="btn btn-primary " @onclick="StartQuiz"> @(started ? "Stop" : "Start") </button>
     </div>
     <dvi class="col-6 float-end">
-        <BackTimer @ref="myTimer" duration="quizDTO.Duration"></BackTimer>
+        <BackTimer @ref="myTimer" duration="quizDTO.Duration" OnTimerComplete="OnTimeUp"></BackTimer>
     </dvi>
 </div>
 
@@ -28,8 +28,8 @@
             var question = quizDTO.Questions[j];
 
             <div class="@(j!=index? "d-none":"animate-right")">
-                <h2>@question.Name</h2>
-                <p>@question.Description</p>
+                <h3>@(j+1).@question.Name</h3>
+                <p style="white-space:pre-line;">@question.Description</p>
                 <p>
                     <label>
                         <strong>A:</strong>

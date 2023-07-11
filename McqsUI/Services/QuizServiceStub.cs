@@ -1,4 +1,5 @@
 ﻿using McqsUI.Models;
+using McqsUI.Utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +12,7 @@ namespace McqsUI.Services
     public class QuizServiceStub
     {
         private List<QuizDTO> quizzes = new();
+        private string _filePath = System.IO.Path.Combine(System.IO.Directory.GetCurrentDirectory(), "Data") + "/sample.json";
 
         public QuizServiceStub()
         {
@@ -34,7 +36,7 @@ namespace McqsUI.Services
                 Id = 2,
                 Name = "Stub Quiz No.2",
                 Description = "from Stub Service",
-                Duration = new TimeSpan(0, 40, 0),
+                Duration = new TimeSpan(0, 30, 0),
                 Subject = Constants.SubjectEnum.Science,
                 Questions = CreateQuestions()
             });
@@ -63,7 +65,21 @@ namespace McqsUI.Services
 
         public async Task<QuizDTO> GetQuizAsync(long Id)
         {
-            var quiz = quizzes.FirstOrDefault(q => q.Id == Id);            
+            var quiz = new QuizDTO();
+
+            if (Id <= 10)
+            {
+                quiz = quizzes.FirstOrDefault(q => q.Id == Id);
+            }
+            else
+            {
+                var qList = JsonFileUtils.ReadAllData(_filePath);
+                quiz = qList.FirstOrDefault(q => q.Id == Id);
+                foreach (var q in quiz.Questions)
+                {
+                    q.Answer = string.Empty;
+                }
+            }
 
             return await Task.FromResult<QuizDTO>(quiz);
         }
@@ -77,15 +93,86 @@ namespace McqsUI.Services
             returnValue.Description = quiz.Description;
             returnValue.Answers = new List<SolvedQuestionDTO>();
 
-            for (int i = 0; i < quiz.Questions.Count; i++)
+            if (quiz.Id <= 10)
             {
-                returnValue.Answers.Add(new(quiz.Questions[i]));
-                returnValue.Answers[i].Marks = 5;
-                if (i % 2 == 0)
+                for (int i = 0; i < quiz.Questions.Count; i++)
                 {
-                    returnValue.Answers[i].Marks = 0;
+                    returnValue.Answers.Add(new(quiz.Questions[i]));
+                    returnValue.Answers[i].Marks = 5;
+                    if (i % 2 == 0)
+                    {
+                        returnValue.Answers[i].Marks = 0;
+                    }
                 }
             }
+            else 
+            {
+                var serverQuiz = JsonFileUtils.GetQuizbyId(_filePath, quiz.Id);
+                foreach (var q in quiz.Questions) 
+                {
+                    var serverAnswer = serverQuiz.Questions.FirstOrDefault(a => a.Id == q.Id);
+                    var tempSolved = new SolvedQuestionDTO(q);
+
+                    switch(q.Answer) 
+                    {
+                        case "A":
+                        case "a":
+                            if (serverAnswer.Answer.Equals(serverAnswer.OptionA, StringComparison.OrdinalIgnoreCase))
+                            {
+                                tempSolved.Marks = 5;
+                            }
+                            else 
+                            {
+                                tempSolved.Marks = 0;
+                            }
+                            break;
+                            
+                        case "B":
+                        case "b":
+                            if (serverAnswer.Answer.Equals(serverAnswer.OptionB, StringComparison.OrdinalIgnoreCase))
+                            {
+                                tempSolved.Marks = 5;
+                            }
+                            else
+                            {
+                                tempSolved.Marks = 0;
+                            }
+                            break; 
+                        
+                        case "C":
+                        case "c":
+                            if (serverAnswer.Answer.Equals(serverAnswer.OptionC, StringComparison.OrdinalIgnoreCase))
+                            {
+                                tempSolved.Marks = 5;
+                            }
+                            else
+                            {
+                                tempSolved.Marks = 0;
+                            }
+                            break;
+
+                        case "D":
+                        case "d":
+                            if (serverAnswer.Answer.Equals(serverAnswer.OptionD, StringComparison.OrdinalIgnoreCase))
+                            {
+                                tempSolved.Marks = 5;
+                            }
+                            else
+                            {
+                                tempSolved.Marks = 0;
+                            }
+                            break;
+
+                        default:
+                            tempSolved.Marks = 0;
+                            break;
+
+                    }
+
+                    returnValue.Answers.Add(tempSolved);
+                }
+            }
+            
 
             return await Task.FromResult<QuizResultDTO>(returnValue);
         }

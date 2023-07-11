@@ -16,6 +16,9 @@
     [Parameter]
     public TimeSpan duration { get; set; }
 
+    [Parameter]
+    public EventCallback OnTimerComplete { get; set; }
+
 
     public void StartTimer()
     {
@@ -54,8 +57,14 @@
                 aTimer.Elapsed -= CountDownTimer;
                 aTimer.Enabled = false;
             }
+
+            if (counter == 0 || tspan == new TimeSpan(0, 0, 0))
+            {
+                OnTimerComplete.InvokeAsync();
+            }
         }
         InvokeAsync(StateHasChanged);
+        
     }
 
     public void Dispose()

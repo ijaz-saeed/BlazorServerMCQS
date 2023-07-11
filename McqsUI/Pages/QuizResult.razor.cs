@@ -32,9 +32,11 @@ namespace McqsUI.Pages
 
         protected override async Task OnAfterRenderAsync(bool firstRender)
         {
-            var dataPoints = new List<int> { 5, 5 };
-            if (firstRender)
+            if (firstRender && ResultDTO != null)
             {
+                var dataPoints = new List<int> { ResultDTO.Answers.Count(a => a.Marks > 0),
+                ResultDTO.Answers.Count(a => a.Marks <= 0) };
+
                 await JSRuntime.InvokeVoidAsync("drawChart", dataPoints.ToArray());
             }
         }

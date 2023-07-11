@@ -1,5 +1,6 @@
 ﻿using McqsUI.Models;
 using McqsUI.Shared;
+using McqsUI.Utils;
 using Microsoft.AspNetCore.Components;
 using Microsoft.JSInterop;
 using System;
@@ -14,16 +15,20 @@ namespace McqsUI.Pages
         private int index;
         private QuizDTO quizDTO = new();
         private QuestionDTO questionDTO = new();
+        private string myPath = string.Empty;
 
         protected override async Task OnInitializedAsync()
         {
-            quizDTO = await Http.GetQuizAsync(2);
+            quizDTO = await Http.GetQuizAsync(12);
             index = 0;
             started = false;
+            myPath = System.IO.Path.Combine(System.IO.Directory.GetCurrentDirectory(), "Data");
         }
 
         protected void StartQuiz()
         {
+            //JsonFileUtils.PrettyWrite(quizDTO, myPath + "/sample.json");
+
             index = 0;
             quizDTO.Questions.ForEach(a => a.Answer = null);
             questionDTO = quizDTO.Questions[index];
@@ -67,6 +72,14 @@ namespace McqsUI.Pages
                 StateContainer.quizDTO = quizDTO;
                 NavigationManager.NavigateTo("quiz-result");
             }
+        }
+
+        protected async void OnTimeUp() 
+        {
+            await JsRuntime.InvokeVoidAsync("alert", "Your time is Up...");
+
+            StateContainer.quizDTO = quizDTO;
+            NavigationManager.NavigateTo("quiz-result");
         }
     }
 }

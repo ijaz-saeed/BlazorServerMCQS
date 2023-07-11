@@ -7,6 +7,11 @@ namespace McqsUI.Models
 {
     public class QuizResultDTO : BaseModel
     {
-        public List<SolvedQuestionDTO>? Answers { get; set; }
+        public List<SolvedQuestionDTO> Answers { get; set; }
+
+        public QuizResultDTO() 
+        {
+            Answers = new List<SolvedQuestionDTO>();
+        }  
     }
 }
