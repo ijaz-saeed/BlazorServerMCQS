@@ -15,20 +15,24 @@ namespace McqsUI.Pages
         private int index;
         private QuizDTO quizDTO = new();
         private QuestionDTO questionDTO = new();
-        private string myPath = string.Empty;
 
         protected override async Task OnInitializedAsync()
         {
             quizDTO = await Http.GetQuizAsync(12);
+            if (DateTime.Now.Minute % 2 == 0)
+            {
+                quizDTO.Questions.Sort((a, b) => a.Name.CompareTo(b.Name));
+            }
+            else 
+            {
+                quizDTO.Questions.Sort((a, b) => a.Id.CompareTo(b.Id));
+            }
             index = 0;
             started = false;
-            myPath = System.IO.Path.Combine(System.IO.Directory.GetCurrentDirectory(), "Data");
         }
 
         protected void StartQuiz()
         {
-            //JsonFileUtils.PrettyWrite(quizDTO, myPath + "/sample.json");
-
             index = 0;
             quizDTO.Questions.ForEach(a => a.Answer = null);
             questionDTO = quizDTO.Questions[index];
