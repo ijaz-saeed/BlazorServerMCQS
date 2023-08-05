@@ -12,21 +12,15 @@ namespace McqsUI.Pages
     {
         private BackTimer? myTimer;
         private bool started;
+        private int selectedId;
         private int index;
         private QuizDTO quizDTO = new();
         private QuestionDTO questionDTO = new();
 
-        protected override async Task OnInitializedAsync()
+        protected override void OnInitialized()
         {
-            quizDTO = await Http.GetQuizAsync(12);
-            if (DateTime.Now.Minute % 2 == 0)
-            {
-                quizDTO.Questions.Sort((a, b) => a.Name.CompareTo(b.Name));
-            }
-            else 
-            {
-                quizDTO.Questions.Sort((a, b) => a.Id.CompareTo(b.Id));
-            }
+            selectedId = 0;
+
             index = 0;
             started = false;
         }
@@ -37,6 +31,7 @@ namespace McqsUI.Pages
             quizDTO.Questions.ForEach(a => a.Answer = null);
             questionDTO = quizDTO.Questions[index];
             StateContainer.quizDTO = null;
+            RandomSort();
 
             if (!started)
             {
@@ -46,8 +41,34 @@ namespace McqsUI.Pages
             else
             {
                 started = false;
+                selectedId = 0;
             }
             myTimer?.StartTimer();
+        }
+
+        private void RandomSort() 
+        {
+            if (DateTime.Now.Minute % 2 == 0)
+            {
+                quizDTO.Questions.Sort((a, b) => a.Name.CompareTo(b.Name));
+            }
+            else
+            {
+                quizDTO.Questions.Sort((a, b) => a.Id.CompareTo(b.Id));
+            }
+        }
+
+        public async void OnQuizUpdated(ChangeEventArgs e)
+        {
+            selectedId = Convert.ToInt32(e.Value);
+            if (selectedId > 0)
+            {
+                quizDTO = await Http.GetQuizAsync(selectedId);
+                RandomSort();
+
+                index = 0;
+                started = false;
+            }
         }
 
         protected void SelectAnswer(ChangeEventArgs args)

@@ -4,21 +4,40 @@
 @inject QuizStateContainer StateContainer
 @inject IJSRuntime JsRuntime
 
-<h1>@quizDTO.Name</h1>
 <PageTitle>Quiz</PageTitle>
-<p>
-    @quizDTO.Description, total questioins in the quiz are <strong>@quizDTO.Questions.Count</strong> and
-    total time is <strong>@quizDTO.Duration.TotalMinutes Minutes</strong>
-</p>
 
-<div class="mt-3 row">
-    <div class="col-6">
-        <button class="btn btn-primary " @onclick="StartQuiz"> @(started ? "Stop" : "Start") </button>
+@if (selectedId > 0)
+{
+    <h1>@quizDTO.Name</h1>
+    <p>
+        @quizDTO.Description, total questioins in the quiz are <strong>@quizDTO.Questions.Count</strong> and
+        total time is <strong>@quizDTO.Duration.TotalMinutes Minutes</strong>
+    </p>
+
+    <div class="mt-3 row">
+        <div class="col-6">
+            <button class="btn btn-primary " @onclick="StartQuiz"> @(
+            started ? "Stop" : "Start"
+            ) </button>
+        </div>
+        <dvi class="col-6 float-end">
+            <BackTimer @ref="myTimer" duration="quizDTO.Duration" OnTimerComplete="OnTimeUp"></BackTimer>
+        </dvi>
     </div>
-    <dvi class="col-6 float-end">
-        <BackTimer @ref="myTimer" duration="quizDTO.Duration" OnTimerComplete="OnTimeUp"></BackTimer>
-    </dvi>
-</div>
+}
+else
+{
+    <h1>Select a Quiz from below</h1>
+    <div>
+        <select @onchange="@OnQuizUpdated">
+            <option value="0"> Please select a Quiz </option>
+            <option value="11"> Angular basic level </option>
+            <option value="12"> JavaScript basic level </option>
+            <option value="13"> Angular intermediate level </option>
+        </select>
+    </div>
+}
+
 
 @if (started)
 {
