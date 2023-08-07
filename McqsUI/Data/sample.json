@@ -1,0 +1,440 @@
+[
+  {
+    "Duration": "00:40:00",
+    "Subject": 3,
+    "Questions": [
+      {
+        "OptionA": "i am option-A",
+        "OptionB": "i am option-B",
+        "OptionC": "i am option-C",
+        "OptionD": "i am option-D",
+        "Answer": "",
+        "Id": 1,
+        "Name": "i am question no.1",
+        "Description": "i am description no.1"
+      },
+      {
+        "OptionA": "i am option-A",
+        "OptionB": "i am option-B",
+        "OptionC": "i am option-C",
+        "OptionD": "i am option-D",
+        "Answer": "",
+        "Id": 2,
+        "Name": "i am question no.2",
+        "Description": "i am description no.2"
+      },
+      {
+        "OptionA": "i am option-A",
+        "OptionB": "i am option-B",
+        "OptionC": "i am option-C",
+        "OptionD": "i am option-D",
+        "Answer": "",
+        "Id": 3,
+        "Name": "i am question no.3",
+        "Description": "i am description no.3"
+      },
+      {
+        "OptionA": "i am option-A",
+        "OptionB": "i am option-B",
+        "OptionC": "i am option-C",
+        "OptionD": "i am option-D",
+        "Answer": "",
+        "Id": 4,
+        "Name": "i am question no.4",
+        "Description": "i am description no.4"
+      },
+      {
+        "OptionA": "i am option-A",
+        "OptionB": "i am option-B",
+        "OptionC": "i am option-C",
+        "OptionD": "i am option-D",
+        "Answer": "",
+        "Id": 5,
+        "Name": "i am question no.5",
+        "Description": "i am description no.5"
+      },
+      {
+        "OptionA": "i am option-A",
+        "OptionB": "i am option-B",
+        "OptionC": "i am option-C",
+        "OptionD": "i am option-D",
+        "Answer": "",
+        "Id": 6,
+        "Name": "i am question no.6",
+        "Description": "i am description no.6"
+      },
+      {
+        "OptionA": "i am option-A",
+        "OptionB": "i am option-B",
+        "OptionC": "i am option-C",
+        "OptionD": "i am option-D",
+        "Answer": "",
+        "Id": 7,
+        "Name": "i am question no.7",
+        "Description": "i am description no.7"
+      },
+      {
+        "OptionA": "i am option-A",
+        "OptionB": "i am option-B",
+        "OptionC": "i am option-C",
+        "OptionD": "i am option-D",
+        "Answer": "",
+        "Id": 8,
+        "Name": "i am question no.8",
+        "Description": "i am description no.8"
+      },
+      {
+        "OptionA": "i am option-A",
+        "OptionB": "i am option-B",
+        "OptionC": "i am option-C",
+        "OptionD": "i am option-D",
+        "Answer": "",
+        "Id": 9,
+        "Name": "i am question no.9",
+        "Description": "i am description no.9"
+      },
+      {
+        "OptionA": "i am option-A",
+        "OptionB": "i am option-B",
+        "OptionC": "i am option-C",
+        "OptionD": "i am option-D",
+        "Answer": "",
+        "Id": 10,
+        "Name": "i am question no.10",
+        "Description": "i am description no.10"
+      }
+    ],
+    "Id": 2,
+    "Name": "Stub Quiz No.2",
+    "Description": "from Stub Service"
+  },
+  {
+    "Duration": "00:20:00",
+    "Subject": 3,
+    "Questions": [
+      {
+        "OptionA": "JavaScript framework",
+        "OptionB": "Java framework",
+        "OptionC": "HTML framework",
+        "OptionD": "SQL framework",
+        "Answer": "JavaScript framework",
+        "Id": 1,
+        "Name": "AngularJS is a  ",
+        "Description": ""
+      },
+      {
+        "OptionA": "DPAs",
+        "OptionB": "MPAs",
+        "OptionC": "CPAs",
+        "OptionD": "SPAs",
+        "Answer": "SPAs",
+        "Id": 2,
+        "Name": "AngularJS is perfect for?",
+        "Description": ""
+      },
+      {
+        "OptionA": "MVVM architecture pattern",
+        "OptionB": "Decorator pattern",
+        "OptionC": "MVC architecture pattern",
+        "OptionD": "Observer pattern",
+        "Answer": "MVC architecture pattern",
+        "Id": 3,
+        "Name": "Among the following, on which architectural pattern is AngularJS based?",
+        "Description": ""
+      },
+      {
+        "OptionA": "{{expressions}}",
+        "OptionB": "[expression]",
+        "OptionC": "{{{expressions}}}",
+        "OptionD": "{expressions}",
+        "Answer": "{{expressions}}",
+        "Id": 4,
+        "Name": "Choose the correct syntax for writing AngularJS expression.",
+        "Description": ""
+      },
+      {
+        "OptionA": "it is unit-testable",
+        "OptionB": "it provides reusable components",
+        "OptionC": "it uses dependency injection and makes use of separation of concerns",
+        "OptionD": "all of the above",
+        "Answer": "all of the above",
+        "Id": 5,
+        "Name": "Choose the advantage of Angular JS among the following.",
+        "Description": ""
+      },
+      {
+        "OptionA": "email",
+        "OptionB": "orderby",
+        "OptionC": "currency",
+        "OptionD": "lowercase",
+        "Answer": "email",
+        "Id": 6,
+        "Name": "Choose the incorrect AngularJS filter.",
+        "Description": ""
+      },
+      {
+        "OptionA": "Ahead of Time compilation",
+        "OptionB": "Angular Object Templates",
+        "OptionC": "Both a and b",
+        "OptionD": "None of the above",
+        "Answer": "Ahead of Time compilation",
+        "Id": 7,
+        "Name": "AOT stands for ",
+        "Description": ""
+      },
+      {
+        "OptionA": "Components",
+        "OptionB": "Typescript",
+        "OptionC": "multi-thread",
+        "OptionD": "services",
+        "Answer": "multi-thread",
+        "Id": 8,
+        "Name": "Which of the following is not a feature of angular 2?",
+        "Description": ""
+      },
+      {
+        "OptionA": "using an HTTP package",
+        "OptionB": "Using the http get method",
+        "OptionC": "create a URL transaction",
+        "OptionD": "create a get SQL statement",
+        "Answer": "Using the http get method",
+        "Id": 9,
+        "Name": "Which of the following is used to retrieve a list of items from a server’s URL?",
+        "Description": ""
+      },
+      {
+        "OptionA": "View is responsible to act and process the data",
+        "OptionB": "View is responsible for displaying all or a portion of data to the user",
+        "OptionC": "View represents the database view",
+        "OptionD": "none of the above",
+        "Answer": "View is responsible for displaying all or a portion of data to the user",
+        "Id": 10,
+        "Name": "Choose the correct definition of the view in MVC.",
+        "Description": ""
+      }
+    ],
+    "Id": 11,
+    "Name": "Angular Quiz",
+    "Description": "it contains both AngularJs and Angular 2 Questions"
+  },
+  {
+    "Duration": "00:15:00",
+    "Subject": 3,
+    "Id": 12,
+    "Name": "JavaScript Quiz",
+    "Description": "it is basic Level JavaScript Quiz",
+    "Questions": [
+      {
+        "OptionA": "var variableName = value;",
+        "OptionB": "let variableName = value;",
+        "OptionC": "const variableName = value;",
+        "OptionD": "all of the above",
+        "Answer": "let variableName = value;",
+        "Id": 1,
+        "Name": "What is the correct way to declare a variable in JavaScript?",
+        "Description": ""
+      },
+      {
+        "OptionA": "15",
+        "OptionB": "20",
+        "OptionC": "undefined",
+        "OptionD": "null",
+        "Answer": "15",
+        "Id": 2,
+        "Name": "What is the output of the following JavaScript code?",
+        "Description": "var x = 5;\n var y = 10;\n console.log(x + y);"
+      },
+      {
+        "OptionA": "document.getElementById('id');",
+        "OptionB": "document.querySelector('#id');",
+        "OptionC": "both A and B",
+        "OptionD": "none of the above",
+        "Answer": "both A and B",
+        "Id": 3,
+        "Name": "What is the correct way to access an HTML element by id in JavaScript?",
+        "Description": ""
+      },
+      {
+        "OptionA": "HELLO",
+        "OptionB": "hello",
+        "OptionC": "undefined",
+        "OptionD": "null",
+        "Answer": "HELLO",
+        "Id": 4,
+        "Name": "What is the output of the following JavaScript code?",
+        "Description": "var x = 'hello';\n console.log(x.toUpperCase());"
+      },
+      {
+        "OptionA": "document.write('hello');",
+        "OptionB": "document.getElementById('id').innerHTML = 'hello';",
+        "OptionC": "both A and B",
+        "OptionD": "none of the above",
+        "Answer": "both A and B",
+        "Id": 5,
+        "Name": "What is the correct way to write HTML output in JavaScript?",
+        "Description": ""
+      },
+      {
+        "OptionA": "x is equal to 5",
+        "OptionB": "x is not equal to 5",
+        "OptionC": "undefined",
+        "OptionD": "null",
+        "Answer": "x is equal to 5",
+        "Id": 6,
+        "Name": "What is the output of the following JavaScript code?",
+        "Description": "var x = 5;\n if (x == 5) {\n  console.log('x is equal to 5');\n} else {\n  console.log('x is not equal to 5');\n}"
+      },
+      {
+        "OptionA": "<script src='myscript.js'></script>",
+        "OptionB": "<script src='myscript.js' defer></script>",
+        "OptionC": "Both A and B",
+        "OptionD": "None of the above",
+        "Answer": "Both A and B",
+        "Id": 7,
+        "Name": "What is the correct way to call an external JavaScript file in the current HTML document?",
+        "Description": ""
+      },
+      {
+        "OptionA": "function myFunction() { // code }",
+        "OptionB": "var myFunction = function() { // code }",
+        "OptionC": "both A and B",
+        "OptionD": "none of the above",
+        "Answer": "function myFunction() { // code }",
+        "Id": 8,
+        "Name": "What is the correct way to define a function in JavaScript?",
+        "Description": ""
+      },
+      {
+        "OptionA": "5",
+        "OptionB": "6",
+        "OptionC": "undefined",
+        "OptionD": "null",
+        "Answer": "5",
+        "Id": 9,
+        "Name": "What is the output of the following JavaScript code?",
+        "Description": "var x = 'hello';\n console.log(x.length);"
+      },
+      {
+        "OptionA": "// this is a comment",
+        "OptionB": "/* this is a comment */",
+        "OptionC": "both A and B",
+        "OptionD": "none of the above",
+        "Answer": "both A and B",
+        "Id": 10,
+        "Name": "What is the correct way to create a comment in JavaScript?",
+        "Description": ""
+      }
+    ]
+  },
+  {
+    "Duration": "00:15:00",
+    "Subject": 3,
+	  "Id": 13,
+    "Name": "Angular/ AngularJs Quiz",
+    "Description": "it contains both AngularJs and Angular 2 Questions",
+    "Questions": [
+      {
+		  "Id": 1,
+        "Name": "What is AngularJS?",
+        "Description": "",
+        "OptionA": "A programming language",
+        "OptionB": "A framework for building web applications",
+	      "OptionC": "A database management system",
+	      "OptionD": "A scripting language",
+        "Answer": "A framework for building web applications"
+        
+      },
+      {
+        "Id": 2,
+        "Name": "Which directive is used in AngularJS to bind the value of an HTML element to a model?",
+        "Description": "",
+		"OptionA": "ng-value",
+		"OptionB": "ng-bind",
+		"OptionC": "ng-model",
+		"OptionD": "ng-data",
+        "Answer": "ng-model"
+        
+      },
+      {
+		"Id": 3,
+        "Name": "In Angular, which decorator is used to define a component?",
+        "Description": "",
+        "OptionA": "@Directive",
+		    "OptionB": "@Module",
+		    "OptionC": "@Component",
+		    "OptionD": "@View",
+        "Answer": "@Component"
+      },
+      {
+		    "Id": 4,
+        "Name": "What is the purpose of the 'ng-repeat' directive in AngularJS?",
+        "Description": "",
+        "OptionA": "To repeat a code block a fixed number of times",
+		    "OptionB": "To create a loop for data manipulation",
+		    "OptionC": "To iterate over a collection and display its elements",
+		    "OptionD": "To execute a function repeatedly",   
+        "Answer": "To iterate over a collection and display its elements"       
+      },
+      {
+		    "Id": 5,
+        "Name": "In Angular, what is the role of a service?",
+        "Description": "",
+        "OptionA": "To handle HTTP requests",
+		    "OptionB": "To define the user interface",
+		    "OptionC": "To manage components' data binding",
+		    "OptionD": "To encapsulate business logic and share data between components",   
+        "Answer": "To encapsulate business logic and share data between components"       
+      },
+      {
+		    "Id": 6,
+        "Name": "What is the purpose of 'ngIf' in Angular?",
+        "Description": "",
+        "OptionA": "To conditionally display an element based on an expression",
+		    "OptionB": "To create a new scope for a section of HTML",
+		    "OptionC": "To loop through an array",
+		    "OptionD": "To add a new module to the application",		
+        "Answer": "To conditionally display an element based on an expression"
+      },
+      {
+		    "Id": 7,
+        "Name": "Which lifecycle hook is called just after the component's data-bound properties have been initialized?",
+        "Description": "",
+         "OptionA": "ngOnInit",
+		    "OptionB": "ngAfterViewInit",
+		    "OptionC": "ngOnChanges",
+		    "OptionD": "ngAfterContentInit",   
+        "Answer": "ngOnInit"        
+      },
+      {
+		    "Id": 8,
+        "Name": "What is the purpose of the 'ngClass' directive in Angular?",
+        "Description": "",
+        "OptionA": "To define a new CSS class for an element",
+		    "OptionB": "To conditionally apply CSS classes to an element",
+		    "OptionC": "To remove a CSS class from an element",
+		    "OptionD": "To create a dynamic CSS file",   
+        "Answer": "To conditionally apply CSS classes to an element"        
+      },
+      {
+		    "Id": 9,
+        "Name": "In Angular, how can you handle HTTP requests?",
+        "Description": "",
+        "OptionA": "Using the HttpClient service",
+		    "OptionB": "By adding a 'http' attribute to the HTML element",
+		    "OptionC": "By using the 'ngHttp' directive",
+		    "OptionD": "By manually writing XMLHttpRequest code",   
+        "Answer": "Using the HttpClient service"        
+      },
+      {
+		    "Id": 10,
+        "Name": "What is the purpose of the Angular CLI?",
+        "Description": "",
+        "OptionA": "To create and manage Angular projects",
+		    "OptionB": "To provide a user interface for Angular applications",
+		    "OptionC": "To design the user interface of an application",
+		    "OptionD": "To enable client-side rendering in Angular",    
+        "Answer": "To create and manage Angular projects"        
+      }
+    ]
+  }
+]
